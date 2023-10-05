@@ -1,0 +1,82 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsItemPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Services;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@inject IUserService UserService;
+
+@{
+    Layout = "LayoutWithBreadcrumb.cshtml";
+    var userService = UserService;
+    var image = Model.Value<IPublishedContent>("newsImages");
+}
+
+<!-- news-article-section -->
+
+<section class="news-article-section">
+    <div class="container">
+        <div class="container-news">
+            <div class="newsdata">
+                <h2>@Model.Name</h2>
+                <div class="news-details">
+                    <span>@Model.CreateDate.ToString("MMM dd, yyyy")</span>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>@Model.Value("newsCategory")</span>
+                    <i class="fa-solid fa-circle"></i>
+                    <span>@Model.CreatorName(UserService)</span>
+                </div>
+            </div>
+            <div class="article-for-news">
+                <div class="content">
+                    <img class="img-article-news" src="@image.Url()" alt="">
+                    @Model.Value("newsContent")
+                    
+                    <div class="tags">
+                        @foreach(var tag in Model.Value<IEnumerable<string>>("newsTags"))
+                        {
+                        <span>@tag</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="searchfield-box">
+            <div class="searchfield">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Type of search...">
+            </div>
+            <div class="recent-posts">
+                <h4>Recent Posts<span class="span-line"></span></h4>
+                <div>
+                    <h5>How To Blow Throught Capital At An Incredible Rate</h5>
+                    <p>Jan 14, 2020</p>
+                </div>
+                <div>
+                    <h5>Design Studios That Everyone Should Know About</h5>
+                    <p>Jan 14, 2020</p>
+                </div>
+                <div>
+                    <h5>How did we get 1M+ visitors in 30 days without anything!</h5>
+                    <p>Jan 14, 2020</p>
+                </div>
+                <div>
+                    <h5>Figma On Figma: How We Built Our Website Design System</h5>
+                    <p>Jan 14, 2020</p>
+                </div>
+            </div>
+            <div class="categories-style">
+                <h4>Categories<span class="span-line"></span></h4>
+                <div>
+                    <h5>Technology - <span>20 Posts</span></h5>
+                    <h5>Freelancing - <span>07 Posts</span></h5>
+                    <h5>Writning - <span>16 Posts</span></h5>
+                    <h5>Marketing - <span>11 Posts</span></h5>
+                    <h5>Business - <span>35 Posts</span></h5>
+                    <h5>Education - <span>14 Posts</span></h5>
+                </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+@await Html.PartialAsync("_Singel-ArticleSection", Model)

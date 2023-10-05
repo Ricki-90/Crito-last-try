@@ -1,0 +1,170 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+
+<!-- Members_section -->
+
+<section class="member-main">
+    <div class="container">
+        <div>
+            <p>Meet Our Team</p>
+            <div class="member-header">
+                <h2>Experience Team Members</h2>
+                <a class="btn-yellow" href="team.html">Browse Team<i class="fa-regular fa-arrow-up-right"></i> </a>
+            </div>
+        </div>
+        <div class="members-img">
+            <div>
+                @{
+                    var memberKristineImage = Model.Value<MediaWithCrops>("memberKristineImage");
+                    if (memberKristineImage != null)
+                    {
+                        <img src="@memberKristineImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h5>Kristine</h5>
+                <p>Chef Operation Officer</p>
+            </div>
+            <div>
+                 @{
+                    var memberMarkImage = Model.Value<MediaWithCrops>("memberMarkImage");
+                    if (memberMarkImage != null)
+                    {
+                        <img src="@memberMarkImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h5>Mark</h5>
+                <p>Senior Consultant</p>
+            </div>
+            <div>
+                @{
+                    var memberKimberlyImage = Model.Value<MediaWithCrops>("memberKimberlyImage");
+                    if (memberKimberlyImage != null)
+                    {
+                        <img src="@memberKimberlyImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h5>Kimberly</h5>
+                <p>Senior Consultant</p>
+            </div>
+            <div class="img-right-4">
+               @{
+                    var memberJustinImage = Model.Value<MediaWithCrops>("memberJustinImage");
+                    if (memberJustinImage != null)
+                    {
+                        <img src="@memberJustinImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h5>Justin</h5>
+                <p>Senior Tech Consultant</p>
+            </div>
+        </div>
+        <div class="dots">
+            <i class="fa-duotone fa-ellipsis fa-3x"></i>
+        </div>
+    </div>
+    <div class="Testimonial">
+        <div class="container">
+            <div class="Testimonial-header">
+                <p>Testimonial</p>
+                <h2>What Our Client Says</h2>
+            </div>
+            <div class="d-flex mt-5 justify-content-center">
+                <div class="rating-box">
+                    <div class="">
+                        <div class="mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Distinctio libero consequuntur, quisquam excepturi nobis</p>
+                        <p>harum aspernatur hic ducimus sit cumque.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="d-flex mt-4">
+                            <div>
+                                @{
+                                    var memberClientCassandraImage = Model.Value<MediaWithCrops>("memberClientCassandraImage");
+                                    if (memberClientCassandraImage != null)
+                                    {
+                                        <img src="@memberClientCassandraImage.MediaUrl()" alt="" />
+                                    }
+                                }
+                            </div>
+                            <div class="d-grid text-box">
+                                <h5>Cassandra Warren</h5>
+                                <p>Business Manager, Dorfus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rating-box">
+                    <div class="ms-4">
+                        <div class="mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Distinctio libero consequuntur, quisquam excepturi nobis</p>
+                        <p>harum aspernatur hic ducimus sit cumque.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="d-flex mt-4">
+                            <div>
+                                @{
+                                    var memberClientAmandaImage = Model.Value<MediaWithCrops>("memberClientAmandaImage");
+                                    if (memberClientAmandaImage != null)
+                                    {
+                                        <img src="@memberClientAmandaImage.MediaUrl()" alt="" />
+                                    }
+                                }
+                            </div>
+                            <div class="d-grid text-box">
+                                <h5>Cassandra Warren</h5>
+                                <p>Business Manager, Dorfus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rating-box">
+                    <div class="ms-4">
+                        <div class="mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p>Distinctio libero consequuntur, quisquam excepturi nobis</p>
+                        <p>harum aspernatur hic ducimus sit cumque.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="d-flex mt-4">
+                            <div>
+                                @{
+                                    var memberClientJackImage = Model.Value<MediaWithCrops>("memberClientJackImage");
+                                    if (memberClientJackImage != null)
+                                    {
+                                        <img src="@memberClientJackImage.MediaUrl()" alt="" />
+                                    }
+                                }
+                            </div>
+                            <div class="d-grid text-box">
+                                <h5>Cassandra Warren</h5>
+                                <p>Business Manager, Dorfus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-content">
+                <a class="btn-black" href="projects.html">All Reviews <i class="fa-regular fa-arrow-up-right"></i></a>
+            </div> 
+        </div>
+    </div>
+</section>

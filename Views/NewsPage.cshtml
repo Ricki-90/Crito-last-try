@@ -1,0 +1,89 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.NewsPage>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.PublishedContent;
+@{
+    Layout = "LayoutWithBreadcrumb.cshtml";
+
+    var itemsPerPage = 6;
+    var PageNumber = 1;
+
+    if (!int.TryParse(Context.Request.Query["page"], out PageNumber))
+        PageNumber = 1;
+
+
+    var selection = Umbraco.Content(Guid.Parse("2301ace9-02f8-4ad7-b1d7-b89d4e56d845"))?
+    .ChildrenOfType("newsItemPage")?
+    .Where(x => x.IsVisible())
+    .OrderByDescending(x => x.CreateDate).ToList();
+
+    var totaltItems = selection?.Count() ?? 0;
+    var pagedItems = selection?.Skip((PageNumber - 1) * itemsPerPage).Take(itemsPerPage);
+
+}
+
+<!-- article-main-section -->
+
+<section class="article-main-section">
+    <div class="container">
+        <div class="head-news">
+            <h2>Our News & Articles</h2>
+        </div>
+        <div class="articles-post">             
+            
+            @if (pagedItems != null)
+            {
+                @foreach (var item in pagedItems!)
+                {
+                    var url = item.Url();
+                    var date = item.CreateDate;
+                    var image = item.Value<IPublishedContent>("newsImages");
+                    var category = item.Value("newsCategory");
+                    var title = item.Name();
+                    var preamble = item.Value("newsPreamble");
+
+                    <a href="@url" class="articles">
+                        <div class="post-date">
+                            <div class="day">@date.ToString("dd")</div>
+                            <div class="month">@date.ToString("MMM")</div>
+                        </div>
+                        <img src="@image?.Url()" alt="">
+                        <h6>@category</h6>
+                        <h5>@title</h5>
+                        <p>@preamble</p>
+                    </a>
+                }
+            }    
+        </div>
+        <nav class="nav-page" aria-label="Page navigation">
+            
+            @if (PageNumber > 1)
+            {
+                <a href="?page=@(PageNumber - 1)" class="news-link" aria-label="Previous">
+                    <span aria-hidden="true"><i class="fa-sharp fa-solid fa-chevron-left"></i></span>
+                </a>
+            }
+
+            @for (int i = 1; i <= Math.Ceiling((decimal)totaltItems / itemsPerPage); i++)
+            {
+                if (i == PageNumber) {
+                    <a href="#" class="news-link active">@i</a>
+                }
+                else {
+                    <a href="?page=@i" class="news-link">@i</a>
+                }
+            }
+
+            @if (PageNumber < Math.Ceiling((decimal)totaltItems / itemsPerPage)) 
+            {
+                <a href="?page=@(PageNumber + 1)" class="news-link" aria-label="Next">
+                    <span aria-hidden="true"><i class="fa-sharp fa-solid fa-chevron-right"></i></span>
+                </a>
+            }
+        </nav>
+    </div>
+</section>
+
+@await Html.PartialAsync("_NewsUpdateSignUp", Model)
+
+

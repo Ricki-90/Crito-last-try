@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+<!-- Founder_section -->
+
+<section class="founder-section">
+    <div class="container">
+        <div>
+            @{
+                var founderImage = Model.Value<MediaWithCrops>("founderImage");
+                if (founderImage != null)
+                {
+                    <img src="@founderImage.MediaUrl()" alt="" />
+                }
+            }
+            <div class="founder-post">
+                <h4>Samantha Brown <span>Founder</span></h4>
+                <p>"Lorem ipsum, dolor sit amet consectetur adipisicing elit".</p>
+            </div>
+        </div>
+        <div class="founder-about">
+            <h6>About Company</h6>
+            <h2>We Are Business Consulting & Credit Repair Experts</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quam, hic at aspernatur in possimus autem quis.</p>
+            <p>Veritatis inventore neque nobis nesciunt cupiditate alias molestiae quibusdam blanditiis magni distinctio reiciendis.</p>
+            <div class="founder-video">
+                <a class="btn-black" href="projects.html">Learn More <i class="fa-regular fa-arrow-up-right"></i></a>
+                <a class="intro-video" href="video.html"><span><i class="fa-solid fa-play"></i></span> Intro Video</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,69 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+<!-- singel-article-news-section -->
+
+<section class="singel-articles-news">
+    <div class="container">
+        <div class="articles-news-headline">
+            <div>
+                <p>Article & News</p>
+                <h2>Get Every Single Article & News</h2>
+            </div>
+            <div><a class="btn-transparent" href="#">Browse Services <i class="fa-solid fa-arrow-up-right"></i></a></div>
+        </div>
+        <div class="articles-post">
+            <a href="#" class="articles">
+                <div class="post-date">
+                    <div class="day">09</div>
+                    <div class="month">Aug</div>
+                </div>
+                    @{
+                        var singelArticleBusinessGirlImage = Model.Value<MediaWithCrops>("singelArticleBusinessGirlImage");
+                        if (singelArticleBusinessGirlImage != null)
+                        {
+                            <img src="@singelArticleBusinessGirlImage.MediaUrl()" alt="" />
+                        }
+                    }
+                <h6>Business</h6>
+                <h5>How to use digialization in the classroom</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus provident incidunt.</p>    
+            </a>
+            <a href="#" class="articles">
+                <div class="post-date">
+                    <div class="day">09</div>
+                    <div class="month">Aug</div>
+                </div>
+                    @{
+                        var singelArticleChatGPTImage = Model.Value<MediaWithCrops>("singelArticleChatGPTImage");
+                        if (singelArticleChatGPTImage != null)
+                        {
+                            <img src="@singelArticleChatGPTImage.MediaUrl()" alt="" />
+                        }
+                    }
+                <h6>Business</h6>
+                <h5>How to use digialization in the classroom</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus provident incidunt.</p>    
+            </a>
+            <a href="#" class="articles">
+                <div class="post-date">
+                    <div class="day">09</div>
+                    <div class="month">Aug</div>
+                </div>
+                    @{
+                        var singelArticleCCSImage = Model.Value<MediaWithCrops>("singelArticleCCSImage");
+                        if (singelArticleCCSImage != null)
+                        {
+                            <img src="@singelArticleCCSImage.MediaUrl()" alt="" />
+                        }
+                    }
+                <h6>Business</h6>
+                <h5 class="article-h5">How to use digialization in the classroom</h5>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Necessitatibus provident incidunt.</p>    
+            </a>
+        </div>
+        <div class="dots d-flex justify-content-center align-items-center">
+            <i class="fa-duotone fa-ellipsis fa-3x"></i>
+        </div>
+    </div>
+</section>

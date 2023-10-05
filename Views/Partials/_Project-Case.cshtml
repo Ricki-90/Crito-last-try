@@ -1,0 +1,63 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+
+<!-- Project & case studies section-->
+
+<section class="project-a-case">
+    <div class="container">
+        <div class="section-title">
+            <p>Project & Case Studies</p>
+            <h2>Let's Looks Our Global Projects</h2>
+        </div>
+        <div class="project-a-cases">
+            <a class="project" href="#">
+                @{
+                var projectCasePapperImage = Model.Value<MediaWithCrops>("projectCasePapperImage");
+                    if (projectCasePapperImage != null)
+                    {
+                     <img src="@projectCasePapperImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h3>Grow your business</h3>
+                <div class="readmore">Read More <i class="fa-regular fa-arrow-up-right"></i></div>
+            </a>
+            <a class="project" href="#">
+                @{
+                var projectCaseIpadImage = Model.Value<MediaWithCrops>("projectCaseIpadImage");
+                    if (projectCaseIpadImage != null)
+                    {
+                     <img src="@projectCaseIpadImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h3>Why your client needs a responsive website</h3>
+                <div class="readmore">Read More <i class="fa-regular fa-arrow-up-right"></i></div>
+            </a>
+            <a class="project" href="#">
+                @{
+                var projectCaseTabelImage = Model.Value<MediaWithCrops>("projectCaseTabelImage");
+                    if (projectCaseTabelImage != null)
+                    {
+                     <img src="@projectCaseTabelImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h3>Educate your employees to get better results</h3>
+                <div class="readmore">Read More <i class="fa-regular fa-arrow-up-right"></i></div>
+            </a>
+            <a class="project" href="#">
+                @{
+                var projectCaseLaptopImage = Model.Value<MediaWithCrops>("projectCaseLaptopImage");
+                    if (projectCaseLaptopImage != null)
+                    {
+                    <img src="@projectCaseLaptopImage.MediaUrl()" alt="" />
+                    }
+                }
+                <h3>Business insights is a importen piece of your business</h3>
+                <div class="readmore">Read More <i class="fa-regular fa-arrow-up-right"></i></div>
+            </a>
+        </div>
+        <div class="center-content">
+            <a class="btn-black" href="projects.html">All Recent Projects <i class="fa-regular fa-arrow-up-right"></i></a>
+        </div>
+    </div>
+</section>

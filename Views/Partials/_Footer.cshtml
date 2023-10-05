@@ -1,0 +1,71 @@
+﻿@using Umbraco.Cms.Core.Models;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+ 
+<!-- Footer-section -->   
+
+<footer>
+    <section class="footer-main">
+            @{
+                var footerWhitelineImage = Model.Value<MediaWithCrops>("footerWhitelineImage");
+                if (footerWhitelineImage != null)
+                {
+                    <img class="whiteline-logo" src="@footerWhitelineImage.MediaUrl()" alt="" />
+                }
+            }
+        <div class="container">
+            <div class="footer-left-logo">
+                @{
+                    var footerLogoWhiteImage = Model.Value<MediaWithCrops>("footerLogoWhiteImage");
+                    if (footerLogoWhiteImage != null)
+                    {
+                        <img src="@footerLogoWhiteImage.MediaUrl()" alt="" />
+                    }
+                }
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat obcaecati voluptas voluptates! Voluptates laborum nam ratione minus necessitatibus, iure praesentium.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Company</h5>
+                <div class="footer-link"><a href="/about">About</a></div>
+                <div class="footer-link"><a href="/Features">Features</a></div>
+                <div class="footer-link"><a href="/Works">Works</a></div>
+                <div class="footer-link"><a href="/Career">Career</a></div>
+            </div>
+                
+            <div class="footer-links">
+                <h5>Help</h5>
+                <div class="footer-link"><a href="/about">Customer Support</a></div>
+                <div class="footer-link"><a href="/Features">Delivery Details</a></div>
+                <div class="footer-link"><a href="/Works">Terms & Conditions</a></div>
+                <div class="footer-link"><a href="/Career">Privacy Policy</a></div>
+            </div>
+                    
+            <div class="footer-links">
+                <h5>Resources</h5>
+                <div class="footer-link"><a href="/about">Free eBooks</a></div>
+                <div class="footer-link"><a href="/Features">Development</a></div>
+                <div class="footer-link"><a href="/Works">How to - Blog</a></div>
+                <div class="footer-link"><a href="https:/youtube.com" target="_blank">Youtube Playlist</a></div>
+            </div>
+                    
+            <div class="footer-links">
+                <h5>Links</h5>
+                <div class="footer-link"><a href="/about">Free eBooks</a></div>
+                <div class="footer-link"><a href="/Features">Development</a></div>
+                <div class="footer-link"><a href="/Works">How to - Blog</a></div>
+                <div class="footer-link"><a href="/Career">Youtube Playlist</a></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container lower-foot">
+            <p>* 2023 Crito - Consulting Comapny inc. All Right Reserved.</p>
+            <div class="social-media-white">
+                <a href="https://facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+</footer>
